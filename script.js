@@ -10,7 +10,7 @@
 // console.log(typeof guessNumber);
 
 // game logic
-const guessNumber = Math.trunc(Math.random() * 20) + 1;
+let guessNumber = Math.trunc(Math.random() * 20) + 1;
 console.log(guessNumber);
 let score = 20;
 
@@ -22,10 +22,6 @@ let score = 20;
 document.querySelector('.check').addEventListener('click', function() {
     const guess = Number(document.querySelector('.guess').value);
     document.querySelector('.number').textContent = guess;
-
-    //reset game
-    //*document.querySelector('.again').addEventListener('click', location.reload());*
-
 
     // if (guess > 20) {
     //     document.querySelector('.message').textContent = '🚫 Enter a Number between 1 and 20!';
@@ -70,4 +66,15 @@ document.querySelector('.check').addEventListener('click', function() {
         }
         
     }
-}) 
+})
+//reset game
+document.querySelector('.again').addEventListener('click', function() {
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.score').textContent = '20';
+    document.querySelector('.guess').value = '';
+    document.querySelector('body').style.backgroundColor = '#222';
+    guessNumber = Math.trunc(Math.random() * 20) + 1;
+    console.log(guessNumber);
+}
+); 
